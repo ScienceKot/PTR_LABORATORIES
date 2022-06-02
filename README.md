@@ -10,6 +10,9 @@ First step of message flow is the subscription of Producer and Consumer to the M
 
 Using the new port Procer creates a new actor that sends messages to the Gateway. Fore every message send a MessageHandler is created that getts the topic of the message, finds the Consumers subscribed to these topics and creates a Distributor for every Consumer which sends the message to them.
 
+![MessageFlow](/assets/Message Flow.png)
+
 ## Spawn Tree
 
 MainSuperviser for every subscribe message creates a MainSupervisorMessageHandler, which after saving the producer/consumer data, creates a Gateway actor. This one creates a MessageHandler for every message, wich after finding the ports to forward the message to the consumer subscribed to the topics of the message.
+![MessageFlow](/assets/Spawn Tree.png)
